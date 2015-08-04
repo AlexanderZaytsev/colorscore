@@ -11,7 +11,7 @@ module Colorscore
     end
 
     def self.from_hex(hex_values)
-      new hex_values.map { |hex| Color::RGB.from_html(hex) }
+      new hex_values.map { |hex| Colour::RGB.from_html(hex) }
     end
 
     def scores(histogram_scores, distance_threshold=0.275)

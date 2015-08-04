@@ -9,6 +9,6 @@ class HistogramTest < Test::Unit::TestCase
 
   def test_transparency_is_ignored
     histogram = Histogram.new("test/fixtures/transparency.png")
-    assert_equal Color::RGB.from_html('0000ff'), histogram.colors.first
+    assert_equal Colour::RGB.from_html('0000ff'), histogram.colors.first
   end
 end
