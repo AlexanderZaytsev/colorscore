@@ -12,7 +12,7 @@ module Colorscore
     end
 
     def color_counts
-      @lines.map { |line| line.split(':')[0].to_i }
+      @lines.select { |line| line =~ /#([0-9A-F]{6}) / }.map { |line| line.split(':')[0].to_i }
     end
 
     def scores
