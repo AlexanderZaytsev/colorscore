@@ -1,7 +1,9 @@
+require "shellwords"
+
 module Colorscore
   class Histogram
     def initialize(image_path, colors=16, quantize = '-quantize YUV')
-      output = `convert #{image_path} -format %c -dither None #{quantize} -colors #{colors} -depth 8 -alpha on histogram:info:-`
+      output = `convert #{image_path.shellescape} -format %c -dither None #{quantize} -colors #{colors.to_i} -depth 8 -alpha on histogram:info:-`
       @lines = output.lines.sort.reverse.map(&:strip).reject(&:empty?).reject do |line|
         line =~ /srgba\([0-9]+,[0-9]+,[0-9]+,0\)/
       end
